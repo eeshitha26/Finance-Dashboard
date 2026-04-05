@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Finance Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>💰 Finance Dashboard</h1>
+
+    <div class="cards">
+      <div class="card"><h3>Balance</h3><p id="balance">₹0</p></div>
+      <div class="card"><h3>Income</h3><p id="income">₹0</p></div>
+      <div class="card"><h3>Expenses</h3><p id="expense">₹0</p></div>
+    </div>
+
+    <!-- Add Transaction -->
+    <div class="form">
+      <input type="text" id="desc" placeholder="Description">
+      <input type="number" id="amount" placeholder="Amount">
+      <button onclick="addTransaction()">Add</button>
+    </div>
+
+    <!-- NEW: Search + Filter + Sort -->
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search..." oninput="updateUI()">
+
+      <select id="filter" onchange="updateUI()">
+        <option value="all">All</option>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+
+      <select id="sort" onchange="updateUI()">
+        <option value="none">Sort</option>
+        <option value="high">Amount High → Low</option>
+        <option value="low">Amount Low → High</option>
+      </select>
+    </div>
+
+    <ul id="list"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
